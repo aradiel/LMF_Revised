@@ -20,12 +20,18 @@ params [["_vic",objNull,[objNull]]];
 if (isNull _vic || {!local _vic}) exitWith {false};
 
 #include "..\..\settings\cfg_Player.sqf"
+#include "..\..\settings\cfg_Mission.sqf"
 
 
 // APPLY LOADOUT //////////////////////////////////////////////////////////////////////////////////
 //CLEAR CARGO
+if (count vic_inventory_ammo_clean_whitelist == 0 ) then 
+{
+	if(typeof _vic in vic_inventory_ammo_clean_whitelist != true) then {
+		clearMagazineCargoGlobal _vic;
+	};
+};
 clearWeaponCargoGlobal _vic;
-clearMagazineCargoGlobal _vic;
 clearItemCargoGlobal _vic;
 clearBackpackCargoGlobal _vic;
 

@@ -61,8 +61,13 @@ if (var_playerNVG == 0) then {_unit linkItem _NVG};
 //PRIMARY
 [_unit,_Gun_HC] call lmf_loadout_fnc_givePrimary;
 
-//ITEMS
-for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
+//MEDICAL
+{
+	_medical = _x;
+	_medical_class_name = _medical select 0;
+	_medical_amount = _medical select 1;
+	for "_i" from 1 to _medical_amount do {_unit addItem (_medical_class_name);};
+} forEach _Infantry_Medical;
 
 //SIDEARM
 if (var_pistolAll) then {

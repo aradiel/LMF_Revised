@@ -56,6 +56,26 @@ private _Backpack_Light = ["B_AssaultPack_mcamo"]; // Everyone else if given Bac
 private _FlareGun = "hgun_Pistol_Signal_F"; // Flaregun
 private _FlareGun_Ammo = "6Rnd_RedSignal_F"; // Flaregun Ammo
 
+//MEDICAL
+private _Infantry_Medical = [["ACE_fieldDressing",20], 
+							["ACE_splint",3],
+							["ACE_morphine",10],
+							["ACE_epinephrine",5],
+							["ACE_salineIV",1],
+							["ACE_tourniquet",4]]; //Medical items amounts for all units other than the medic.
+
+
+private _Medic_Medical = [["ACE_fieldDressing",15],
+							["ACE_packingBandage",15],
+							["ACE_elasticBandage",15],
+							["ACE_quikclot",10],
+							["ACE_splint",10],
+							["ACE_morphine",20],
+							["ACE_epinephrine",10],
+							["ACE_salineIV",10],
+							["ACE_tourniquet",7],
+							["ACE_personalAidKit",1]]; //Medical items for the medic.
+
 //PISTOL
 private _Pistol = ["hgun_Pistol_heavy_01_F"]; // Pistol
 private _Pistol_Ammo = ["11Rnd_45ACP_Mag"]; // Pistol Ammo
@@ -65,6 +85,7 @@ private _Pistol_Attach2 = ["muzzle_snds_acp"]; // Pistol Attachement #2
 //SMG (Weapon Definition 1)
 private _SMG = ["hgun_PDW2000_F"]; // SMG
 private _SMG_Ammo = ["30Rnd_9x21_Mag"]; // SMG Ammo
+private _SMG_Ammo_Amount = 5; //Amount of Magazines
 private _SMG_Optic = ["optic_yorris"]; // SMG Scope
 private _SMG_Attach1 = [""]; // SMG Attachement #1
 private _SMG_Attach2 = ["muzzle_snds_l"]; // SMG Attachement #2
@@ -73,7 +94,9 @@ private _SMG_Bipod = [""]; // SMG Bipod
 //CARBINE (Weapon Definition 2)
 private _Carbine = ["arifle_MXC_F"]; // Carbine
 private _Carbine_Ammo = ["30Rnd_65x39_caseless_mag"]; // Carbine Ammo
+private _Carbine_Ammo_Amount = 8; // Carbine Ammo Amount
 private _Carbine_Ammo_T = ["30Rnd_65x39_caseless_mag_Tracer"]; // Carbine Tracer Ammo
+private _Carbine_Ammo_T_Amount = 5; // Carbine Tracer Ammo
 private _Carbine_Optic = ["optic_aco"]; // Carbine Optic
 private _Carbine_Attach1 = ["acc_pointer_ir"]; // Carbine Attachement #1
 private _Carbine_Attach2 = ["muzzle_snds_h"]; // Carbine Attachement #2
@@ -82,7 +105,9 @@ private _Carbine_Bipod = [""]; // Carbine Bipod
 //RIFLE (Weapon Definition 3)
 private _Rifle = ["arifle_MX_F"]; // Rifle
 private _Rifle_Ammo = ["30Rnd_65x39_caseless_mag"]; // Rifle Ammo
+private _Rifle_Ammo_Amount = 8; // Rifle Ammo Amount
 private _Rifle_Ammo_T = ["30Rnd_65x39_caseless_mag_Tracer"]; // Rifle Tracer Ammo
+private _Rifle_Ammo_T_Amount = 3; // Rifle Tracer Ammo Amount
 private _Rifle_Optic = ["optic_aco"]; // Rifle Optic
 private _Rifle_Attach1 = ["acc_pointer_ir"]; // Rifle Attachement #1
 private _Rifle_Attach2 = ["muzzle_snds_h"]; // Rifle Attachement #2
@@ -91,11 +116,17 @@ private _Rifle_Bipod = [""]; // Rifle Bipod
 //RIFLE GL (Weapon Definition 4)
 private _Rifle_GL = ["arifle_MX_GL_F"]; // GL Rifle
 private _Rifle_GL_Ammo = ["30Rnd_65x39_caseless_mag"]; // GL Rifle Ammo
+private _Rifle_GL_Ammo_Amount = 8; // GL Rifle Ammo
 private _Rifle_GL_Ammo_T = ["30Rnd_65x39_caseless_mag_Tracer"]; // GL Rifle Tracer Ammo
-private _Rifle_GL_UGL1 = ["1Rnd_HE_Grenade_shell"]; // UGL rounds 6x
-private _Rifle_GL_UGL2 = ["UGL_FlareRed_F"]; // UGL rounds 4x
-private _Rifle_GL_UGL3 = ["1Rnd_SmokeGreen_Grenade_shell"]; // UGL rounds 2x
-private _Rifle_GL_UGL4 = ["1Rnd_SmokeRed_Grenade_shell"]; // UGL rounds 2x
+private _Rifle_GL_Ammo_T_Amount = 3; // GL Rifle Tracer Ammo
+private _Rifle_GL_UGL1 = ["1Rnd_HE_Grenade_shell"]; // UGL rounds 1
+private _Rifle_GL_UGL1_Amount = 6; // UGL rounds 1 Amount
+private _Rifle_GL_UGL2 = ["UGL_FlareRed_F"]; // UGL rounds 2
+private _Rifle_GL_UGL2_Amount = 4; // UGL rounds 2 Amount
+private _Rifle_GL_UGL3 = ["1Rnd_SmokeGreen_Grenade_shell"]; // UGL rounds 3
+private _Rifle_GL_UGL3_Amount = 2; // UGL rounds 3 Amount
+private _Rifle_GL_UGL4 = ["1Rnd_SmokeRed_Grenade_shell"]; // UGL rounds 4
+private _Rifle_GL_UGL4_Amount = 2; // UGL rounds 4 Amount
 private _Rifle_GL_Optic = ["optic_aco"]; // GL Rifle Optic
 private _Rifle_GL_Attach1 = ["acc_pointer_ir"]; // GL Rifle Attachement #1
 private _Rifle_GL_Attach2 = ["muzzle_snds_h"]; // GL Rifle Attachement #2
@@ -104,6 +135,7 @@ private _Rifle_GL_Bipod = [""]; // GL Rifle Bipod
 //DMR (Weapon Definition 5)
 private _DMR = ["srifle_DMR_06_olive_F"]; // DMR
 private _DMR_Ammo = ["20Rnd_762x51_Mag"]; // DMR Ammo
+private _DMR_Ammo_Amount = 8; // DMR Ammo Amount
 private _DMR_Optic = ["optic_dms"]; // DMR Optic
 private _DMR_Attach1 = [""]; // DMR Attachement #1
 private _DMR_Attach2 = ["muzzle_snds_b"]; // DMR Attachement #2
@@ -112,7 +144,9 @@ private _DMR_Bipod = [""]; // DMR Bipod
 //LIGHT MACHINE GUN (Weapon Definition 6)
 private _LMG = ["arifle_MX_SW_F"]; // LMG
 private _LMG_Ammo = ["100Rnd_65x39_caseless_mag"]; // LMG Ammo
+private _LMG_Ammo_Amount = 5; // LMG Ammo Amount
 private _LMG_Ammo_T = ["100Rnd_65x39_caseless_mag_Tracer"]; // LMG Tracer Ammo
+private _LMG_Ammo_T_Amount = 2; // LMG Tracer Ammo Amount
 private _LMG_Optic = ["optic_aco"]; // LMG Optic
 private _LMG_Attach1 = ["acc_pointer_ir"]; // LMG Attachement #1
 private _LMG_Attach2 = ["muzzle_snds_h"]; // LMG Attachement #2
@@ -121,6 +155,7 @@ private _LMG_Bipod = ["bipod_01_f_mtp"]; // LMG Bipod
 //MEDIUM MACHINE GUN (Weapon Definition 7)
 private _MMG = ["MMG_02_sand_F"]; // MMG
 private _MMG_Ammo = ["130Rnd_338_Mag"]; // MMG Ammo
+private _MMG_Ammo_Amount = 3; // MMG Ammo Amount
 private _MMG_Optic = ["optic_aco"]; // MMG Optic
 private _MMG_Attach1 = ["acc_pointer_ir"]; // MMG Attachement #1
 private _MMG_Attach2 = ["muzzle_snds_338_black"]; // MMG Attachement #2

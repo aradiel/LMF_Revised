@@ -61,20 +61,17 @@ if (var_playerNVG == 0) then {_unit linkItem _NVG};
 //PRIMARY
 [_unit,_Gun_Cls] call lmf_loadout_fnc_givePrimary;
 
+//MEDICAL
+{
+	_medical = _x;
+	_medical_class_name = _medical select 0;
+	_medical_amount = _medical select 1;
+	for "_i" from 1 to _medical_amount do {_unit addItem (_medical_class_name);};
+} forEach _Medic_Medical;
+
 //ITEMS
-for "_i" from 1 to 2 do {_unit addItem "FirstAidKit"};
 for "_i" from 1 to 2 do {_unit addItem (selectRandom _Grenade);};
 for "_i" from 1 to 6 do {_unit addItem (selectRandom _Grenade_Smoke);};
-_unit addItem "ACE_personalAidKit";
-for "_i" from 1 to 15 do {_unit addItem "ACE_packingBandage";};
-for "_i" from 1 to 15 do {_unit addItem "ACE_elasticBandage";};
-for "_i" from 1 to 15 do {_unit addItem "ACE_fieldDressing";};
-for "_i" from 1 to 10 do {_unit addItem "ACE_quikclot";};
-for "_i" from 1 to 10 do {_unit addItem "ACE_morphine";};
-for "_i" from 1 to 10 do {_unit addItem "ACE_epinephrine";};
-for "_i" from 1 to 6 do {_unit addItem "ACE_tourniquet";};
-for "_i" from 1 to 6 do {_unit addItem "ACE_splint";};
-for "_i" from 1 to 10 do {_unit addItem "ACE_salineIV";};
 
 //SIDEARM
 if (var_pistolAll) then {

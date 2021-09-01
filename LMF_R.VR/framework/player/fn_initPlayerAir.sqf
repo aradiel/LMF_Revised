@@ -20,14 +20,22 @@ params [["_air",objNull,[objNull]]];
 if (isNull _air || {!local _air}) exitWith {false};
 
 #include "..\..\settings\cfg_Player.sqf"
+#include "..\..\settings\cfg_Mission.sqf"
 
 
 // APPLY LOADOUT //////////////////////////////////////////////////////////////////////////////////
 //CLEAR CARGO
-clearWeaponCargoGlobal _air;
-clearMagazineCargoGlobal _air;
+if (count air_inventory_ammo_clean_whitelist == 0 ) then 
+{
+	if(typeof _air in air_inventory_ammo_clean_whitelist != true) then {
+		clearMagazineCargoGlobal _air;
+	};
+};
+
+ClearWeaponCargoGlobal _air;		
 clearItemCargoGlobal _air;
 clearBackpackCargoGlobal _air;
+
 
 //ADD NEW ITEMS
 if ((_SMG_Ammo#0) != "") then {_air addMagazineCargoGlobal [(selectRandom _SMG_Ammo),5 + (random 10)];};

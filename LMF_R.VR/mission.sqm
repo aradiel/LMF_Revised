@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=120;
+		nextID=192;
 	};
 	class Camera
 	{
-		pos[]={400,30,471};
+		pos[]={429.58899,23.207428,506.7872};
 		dir[]={0,-0.70710683,0.70710683};
 		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		aside[]={0.99999994,0,0};
 	};
 };
 binarizationWanted=0;
@@ -32,8 +32,13 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Characters_F_Tank",
 	"A3_Characters_F_Mark",
+	"ace_explosives",
+	"ace_nouniformrestrictions",
+	"ace_gforces",
+	"ace_parachute",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Ui_F",
+	"Desert",
 	"A3_Structures_F_EPC_Items_Electronics",
 	"A3_Structures_F_Civ_Camping",
 	"A3_Structures_F_Mil_Helipads",
@@ -42,13 +47,14 @@ addons[]=
 	"A3_Structures_F_Households_House_Big01",
 	"A3_Structures_F_Households_House_Shop01",
 	"A3_Modules_F",
-	"A3_Soft_F_MRAP_01"
+	"A3_Soft_F_MRAP_01",
+	"ace_realisticnames"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=12;
+		items=16;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -72,61 +78,87 @@ class AddonsMetaData
 		};
 		class Item3
 		{
+			className="ace_explosives";
+			name="ACE3 - Explosives";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item4
+		{
+			className="ace_nouniformrestrictions";
+			name="ACE3 - No Uniform Restrictions";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item5
+		{
+			className="ace_parachute";
+			name="ACE3 - Parachute";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item6
+		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item7
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item8
+		{
+			className="Desert";
+			name="Desert";
+		};
+		class Item9
 		{
 			className="A3_Structures_F_EPC";
 			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item10
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item11
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item12
 		{
 			className="A3_Structures_F_Orange";
 			name="Arma 3 Orange - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item9
+		class Item13
 		{
 			className="A3_Structures_F_Households";
 			name="Arma 3 - Houses";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item10
+		class Item14
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item15
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
@@ -139,6 +171,33 @@ randomSeed=2960882;
 class ScenarioData
 {
 	author="Drgn V4karian";
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="cba_settings_hasSettingsFile";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"BOOL"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
@@ -175,7 +234,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={400,5.0014391,496.04999};
+						position[]={434,5.0014391,525.54999};
 					};
 					side="West";
 					flags=7;

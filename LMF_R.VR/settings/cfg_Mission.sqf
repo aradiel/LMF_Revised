@@ -8,7 +8,7 @@
 var_author = "Author"; // Your name, which shows up at the end of the warmup.
 var_location = "Virtual Reality"; // Location where scenario takes place, which can be seen in intro.
 var_creatorUID = "76561197997590271"; // Player UID that is being added to the list for admin tool access.
-var_debug = false; // For mission testing, will turn on some debug options. (default: false)
+var_debug = true; // For mission testing, will turn on some debug options. (default: false)
 var_warmup = true; // Start mission with warmup? (default: true)
 var_jipTP = true; // Allow players that JIP to teleport? (default: false)
 var_enemySide = EAST; // What side is the enemy? (WEST,EAST,INDEPENDENT) (default: EAST)
@@ -31,11 +31,13 @@ var_vic1 = "B_Truck_01_covered_F"; // Ground Spawnpad Vehicle
 var_vic2 = "B_APC_Wheeled_01_cannon_F"; // Ground Spawnpad Vehicle
 var_vic3 = "B_MBT_01_TUSK_F"; // Ground Spawnpad Vehicle
 var_vic4 = "B_AFV_Wheeled_01_up_cannon_F"; // Ground Spawnpad Vehicle
+vic_inventory_ammo_clean_whitelist = []; // Whitelist vehicles whose ammo inventory shall not be emptied. Entries must be class names in colons separated by , if multiple.
 
 var_air1 = "B_Heli_Transport_01_F"; // Air Spawnpad Vehicle
 var_air2 = "B_Heli_Light_01_dynamicLoadout_F"; // Air Spawnpad Vehicle
 var_air3 = "B_Heli_Attack_01_dynamicLoadout_F"; // Air Spawnpad Vehicle
 var_air4 = "B_Plane_Fighter_01_F"; // Air Spawnpad Vehicle
+air_inventory_ammo_clean_whitelist = []; // Whitelist air vehicles whose inventory shall not be emptied. Entries must be class names in colons separated by , if multiple.
 
 var_supSmall = "Box_NATO_Ammo_F"; // Supply Spawnpad small supplies
 var_supLarge = "B_supplyCrate_F"; // Supply Spawnpad large supplies
