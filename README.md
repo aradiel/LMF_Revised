@@ -3,6 +3,10 @@
 This revise of the LMF Framework is intended to bring old code up to date, address previously unresolved issues,
 and add functionality all while making sure it stays simple and easy to understand for end users.
 
+## Fork changes:
+This fork has changes made to the briefing.sqf  to keep it compatible with ACE medical.  
+Furthermore it adds additional variables to cfg_Player.sqf to allow for more control over the medical items players receive.
+
 ## Requirements:
 In order to use this Framework, you need to run these mods alongside it:
 * CBA_A3

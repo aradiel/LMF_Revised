@@ -57,6 +57,7 @@ private _FlareGun = "hgun_Pistol_Signal_F"; // Flaregun
 private _FlareGun_Ammo = "6Rnd_RedSignal_F"; // Flaregun Ammo
 
 //MEDICAL
+// Format: [<className>,<count>]
 private _Infantry_Medical = [["ACE_fieldDressing",20], 
 							["ACE_splint",3],
 							["ACE_morphine",10],
