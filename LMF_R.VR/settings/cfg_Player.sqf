@@ -58,24 +58,20 @@ private _FlareGun_Ammo = "6Rnd_RedSignal_F"; // Flaregun Ammo
 
 //MEDICAL
 // Format: [<className>,<count>]
-private _Infantry_Medical = [["ACE_fieldDressing",20], 
-							["ACE_splint",3],
-							["ACE_morphine",10],
-							["ACE_epinephrine",5],
-							["ACE_salineIV",1],
-							["ACE_tourniquet",4]]; //Medical items amounts for all units other than the medic.
+private _Infantry_Medical = [
+                            ["ACE_fieldDressing",15], 
+                            ["ACE_morphine",4],
+                            ["ACE_epinephrine",2],
+                            ["ACE_tourniquet",4]]; //Medical items amounts for all units other than the medic.
 
 
-private _Medic_Medical = [["ACE_fieldDressing",15],
-							["ACE_packingBandage",15],
-							["ACE_elasticBandage",15],
-							["ACE_quikclot",10],
-							["ACE_splint",10],
-							["ACE_morphine",20],
-							["ACE_epinephrine",10],
-							["ACE_salineIV",10],
-							["ACE_tourniquet",7],
-							["ACE_personalAidKit",1]]; //Medical items for the medic.
+private _Medic_Medical = [
+                            ["ACE_fieldDressing",50],
+                            ["ACE_morphine",20],
+                            ["ACE_epinephrine",10],
+                            ["ACE_salineIV",12],
+                            ["ACE_tourniquet",7],
+                            ["ACE_personalAidKit",1]]; //Medical items for the medic.
 
 //PISTOL
 private _Pistol = ["hgun_Pistol_heavy_01_F"]; // Pistol
