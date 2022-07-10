@@ -15,3 +15,6 @@ force force ace_mk6mortar_useAmmoHandling = false; // Keep this if you want fn_m
 
 // ACE Spectator
 force force ace_spectator_enableAI = true; // Keep this if you want the spectator remote control component to work
+
+// ACE Map
+force ace_map_BFT_Enabled = false; // turns off ACE BFT so to not conflict with LMF BFT on map. Change if you want to use this instead of LMF BFT.
