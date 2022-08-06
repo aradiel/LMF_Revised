@@ -174,17 +174,31 @@ if !(isNil "crateRoles") then {
 };
 
 //VIEWDISTANCE
-private _actDistVis = ["lmf_visibility","Visibility","",{},{true}] call ace_interact_menu_fnc_createAction;
-private _actDistGen = ["lmf_viewDistParent","Overall","",{},{true}] call ace_interact_menu_fnc_createAction;
-private _actDistObj = ["lmf_objectDistParent","Object","",{},{true}] call ace_interact_menu_fnc_createAction;
-[player,1,["ACE_SelfActions"],_actDistVis] call ace_interact_menu_fnc_addActionToObject;
-[player,1,["ACE_SelfActions","lmf_visibility"],_actDistGen] call ace_interact_menu_fnc_addActionToObject;
-[player,1,["ACE_SelfActions","lmf_visibility"],_actDistObj] call ace_interact_menu_fnc_addActionToObject;
+private _actDistCat = ["ViewDist","View distance","",{},{}] call ace_interact_menu_fnc_createAction;
+[typeOf player, 1, ["ACE_SelfActions"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
+_actDistCat = ["OverallDist","Overall","",{},{}] call ace_interact_menu_fnc_createAction;
+[typeOf player, 1, ["ACE_SelfActions","ViewDist"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
+_actDistCat = ["ObjectDist","Object","",{},{}] call ace_interact_menu_fnc_createAction;
+[typeOf player, 1, ["ACE_SelfActions","ViewDist"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
+_actDistCat = ["BothtDist","Both","",{},{}] call ace_interact_menu_fnc_createAction;
+[typeOf player, 1, ["ACE_SelfActions","ViewDist"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
 
-{
-	private _currentAction = [format ["lmf_viewOverall_%1",_x],str _x,"",{setViewDistance (_this select 2)},{true},{},_x] call ace_interact_menu_fnc_createAction;
-	[player,1,["ACE_SelfActions","lmf_visibility","lmf_viewDistParent"],_currentAction] call ace_interact_menu_fnc_addActionToObject;
-
-	private _currentAction = [format ["lmf_viewObject_%1",_x],str _x,"",{setObjectViewDistance (_this select 2)},{true},{},_x] call ace_interact_menu_fnc_createAction;
-	[player,1,["ACE_SelfActions","lmf_visibility","lmf_objectDistParent"],_currentAction] call ace_interact_menu_fnc_addActionToObject;
-} forEach [500,1000,1500,2000,2500,3000,4000,5000,6000,7000,8000];
+for "_i" from 250 to 3000 step 250 do {
+    private _iStr = str _i;
+    private _action = [_iStr,_iStr,"",{
+        params ["", "", "_dist"];
+        setViewDistance _dist
+    },{viewDistance isNotEqualTo (_this select 2)}, nil, _i] call ace_interact_menu_fnc_createAction;
+    [typeOf player, 1, ["ACE_SelfActions","ViewDist","OverallDist"], _action] call ace_interact_menu_fnc_addActionToClass;
+    _action = [_iStr,_iStr,"",{
+        params ["", "", "_dist"];
+        setObjectViewDistance _dist
+    },{(getObjectViewDistance select 0) isNotEqualTo (_this select 2)}, nil, _i] call ace_interact_menu_fnc_createAction;
+    [typeOf player, 1, ["ACE_SelfActions","ViewDist","ObjectDist"], _action] call ace_interact_menu_fnc_addActionToClass;
+    private _action = [_iStr,_iStr,"",{
+        params ["", "", "_dist"];
+        setViewDistance _dist;
+        setObjectViewDistance _dist
+    },{viewDistance isNotEqualTo (_this select 2) || {(getObjectViewDistance select 0) isNotEqualTo (_this select 2)}}, nil, _i] call ace_interact_menu_fnc_createAction;
+    [typeOf player, 1, ["ACE_SelfActions","ViewDist","BothtDist"], _action] call ace_interact_menu_fnc_addActionToClass;
+};
