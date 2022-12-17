@@ -172,33 +172,3 @@ if !(isNil "crateRoles") then {
 
 	[crateRoles, 0, ["ACE_MainActions","parentGroundCrew"], _vehCrew] call ace_interact_menu_fnc_addActionToObject;
 };
-
-//VIEWDISTANCE
-private _actDistCat = ["ViewDist","View distance","",{},{}] call ace_interact_menu_fnc_createAction;
-[typeOf player, 1, ["ACE_SelfActions"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
-_actDistCat = ["OverallDist","Overall","",{},{}] call ace_interact_menu_fnc_createAction;
-[typeOf player, 1, ["ACE_SelfActions","ViewDist"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
-_actDistCat = ["ObjectDist","Object","",{},{}] call ace_interact_menu_fnc_createAction;
-[typeOf player, 1, ["ACE_SelfActions","ViewDist"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
-_actDistCat = ["BothtDist","Both","",{},{}] call ace_interact_menu_fnc_createAction;
-[typeOf player, 1, ["ACE_SelfActions","ViewDist"], _actDistCat] call ace_interact_menu_fnc_addActionToClass;
-
-for "_i" from 250 to 3000 step 250 do {
-    private _iStr = str _i;
-    private _action = [_iStr,_iStr,"",{
-        params ["", "", "_dist"];
-        setViewDistance _dist
-    },{viewDistance isNotEqualTo (_this select 2)}, nil, _i] call ace_interact_menu_fnc_createAction;
-    [typeOf player, 1, ["ACE_SelfActions","ViewDist","OverallDist"], _action] call ace_interact_menu_fnc_addActionToClass;
-    _action = [_iStr,_iStr,"",{
-        params ["", "", "_dist"];
-        setObjectViewDistance _dist
-    },{(getObjectViewDistance select 0) isNotEqualTo (_this select 2)}, nil, _i] call ace_interact_menu_fnc_createAction;
-    [typeOf player, 1, ["ACE_SelfActions","ViewDist","ObjectDist"], _action] call ace_interact_menu_fnc_addActionToClass;
-    private _action = [_iStr,_iStr,"",{
-        params ["", "", "_dist"];
-        setViewDistance _dist;
-        setObjectViewDistance _dist
-    },{viewDistance isNotEqualTo (_this select 2) || {(getObjectViewDistance select 0) isNotEqualTo (_this select 2)}}, nil, _i] call ace_interact_menu_fnc_createAction;
-    [typeOf player, 1, ["ACE_SelfActions","ViewDist","BothtDist"], _action] call ace_interact_menu_fnc_addActionToClass;
-};
