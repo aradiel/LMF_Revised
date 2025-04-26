@@ -97,7 +97,7 @@ if (typeOf _supp == var_supSpecial) exitWith {
 	_supp addItemCargoGlobal ["ACRE_PRC152",10];
 	_supp addItemCargoGlobal ["ACRE_PRC343",20];
 
-	if (_Backpack_RTO#0 != "") then {_supp addBackpackCargoGlobal [_Backpack_RTO,5];};
+	if (_Backpack_RTO#0 != "") then {_supp addBackpackCargoGlobal [(selectRandom _Backpack_RTO),5];};
 
 	_supp addItemCargoGlobal ["acc_pointer_IR",20];
 	_supp addItemCargoGlobal ["acc_flashlight",20];
