@@ -22,6 +22,10 @@ var_respawnTime = 1500; // Respawn countdown in seconds in case of "WAVE". (defa
 var_useJRM = false; // Use FP internal JRM respawn system instead of custom LMF one? (default: false)
 var_livesJRM = 0; // Amount of JRM respawn lives (default: 0)
 
+//BODYBAG RESPAWN
+var_useBodyBags = true; // Use simkas' bodybag respawn system REQUIRES JRM (default:false)
+var_bodybagKeepInventory = true; // Will the unit keep the same inventory they had on death? (default:false)
+
 // PLAYERS ////////////////////////////////////////////////////////////////////////////////////////
 var_playerGear = true; // Should players get custom gear? (default: true)
 var_camoCoef = 1; // How easy should players be spotted by AI? Higher number = easier spotted (default: 1)

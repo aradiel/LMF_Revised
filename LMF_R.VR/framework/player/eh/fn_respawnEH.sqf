@@ -11,6 +11,9 @@
 */
 // INIT ///////////////////////////////////////////////////////////////////////////////////////////
 private _doOnRespawn = {
+	//FORCE PRONE ON BODYBAG RESPAWN
+	if(var_useBodyBags) then {player playAction "PlayerProne";}
+	
 	//BLACK FADE
 	cutText  ["", "BLACK FADED", 10, true];
 
@@ -18,11 +21,14 @@ private _doOnRespawn = {
 	[false] call ace_spectator_fnc_setSpectator;
 
 	//PLAYER GEAR
-	if (var_playerGear) then {
-		if !(var_keepRole) then {
-			[player] call lmf_loadout_fnc_rifleman;
-		} else {
-			[player] call lmf_player_fnc_initPlayerGear;
+	if (!isNil "old_loadout" && var_bodybagKeepInventory) then {player setUnitLoadout old_loadout; [player] call lmf_loadout_fnc_addWeapons}
+	else {
+		if (var_playerGear) then {
+			if !(var_keepRole) then {
+				[player] call lmf_loadout_fnc_rifleman;
+			} else {
+				[player] call lmf_player_fnc_initPlayerGear;
+			};
 		};
 	};
 
