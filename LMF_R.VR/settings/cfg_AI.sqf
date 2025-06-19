@@ -157,3 +157,10 @@ if (var_enemySide == INDEPENDENT) then {
 	_Static_Gunner = "I_support_MG_F";
 	_Static_Assistant = "I_support_AMG_F";
 };
+
+//Identity (leave blank for default for class)
+
+_firstName = [""];
+_lastName = [""];
+_Faces = [""];
+_Speakers = [""];

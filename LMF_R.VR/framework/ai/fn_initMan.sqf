@@ -205,6 +205,8 @@ if (_var_enemyGoodies && {30 > random 100}) then {
 //MISC
 if (_unit == leader group _unit || {_type == _MAT_Gunner || {_type == _Crew}}) then {_unit addWeapon "Binocular"};
 
+//Identity
+[_unit, selectRandom _Faces, selectRandom _Speakers] call BIS_fnc_setIdentity;
 
 // RETURN /////////////////////////////////////////////////////////////////////////////////////////
 true
