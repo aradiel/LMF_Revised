@@ -208,5 +208,14 @@ if (_unit == leader group _unit || {_type == _MAT_Gunner || {_type == _Crew}}) t
 //Identity
 [_unit, selectRandom _Faces, selectRandom _Speakers] call BIS_fnc_setIdentity;
 
+//Name
+if(_var_enemyGenericNames) then {
+	_unit setName[format["%1 %2",_factionName,_type], _factionName, _type];
+} else {
+	_name = selectRandom _firstNames;
+	_surname = selectRandom _lastNames;
+	_unit setName[format["%1 %2",_name,_surname], _name, _surname];
+}
+
 // RETURN /////////////////////////////////////////////////////////////////////////////////////////
 true

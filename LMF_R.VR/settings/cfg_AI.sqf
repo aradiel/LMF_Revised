@@ -19,6 +19,8 @@ private _var_enemySkill = 1; // What skill does the enemy have? (0=UNTRAINED, 1=
 private _var_enemyNVG = false; // Should AI get NVGs? (default: false)
 private _var_enemyGear = true; // Should AI get custom gear? (default: true)
 private _var_enemyGoodies = false; // Give additional medical supplies? (default: false) (only taking effect if _var_enemyGear = true;)
+private _var_enemyGenericNames = false; // Should enemies have generic names based on side and role (i.e. OPFOR Rifleman)? (default:false)
+private _factionName = ["OPFOR"]; //for use in generic name option
 
 
 // CLOTHING ///////////////////////////////////////////////////////////////////////////////////////
@@ -158,9 +160,8 @@ if (var_enemySide == INDEPENDENT) then {
 	_Static_Assistant = "I_support_AMG_F";
 };
 
-//Identity (leave blank for default for class)
-
-_firstName = [""];
-_lastName = [""];
-_Faces = [""];
-_Speakers = [""];
+//Identity and name (leave blank for default for class)
+private _firstNames = [""];
+private _lastNames = [""];
+private _Faces = [""];
+private _Speakers = [""];
